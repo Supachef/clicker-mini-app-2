@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#app {
+    margin: 20px;
+}
+
+#pet-status, #actions, #store, #leaderboard, #mini-game {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
