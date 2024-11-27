@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamagotchi App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="pet-status">
+            <h1>Pet Status</h1>
+            <p>Health: <span id="health">100</span></p>
+            <p>Hunger: <span id="hunger">100</span></p>
+            <p>Happiness: <span id="happiness">100</span></p>
+            <p>Energy: <span id="energy">100</span></p>
+        </div>
+        <div id="actions">
+            <button onclick="performAction('feed')">Feed</button>
+            <button onclick="performAction('play')">Play</button>
+            <button onclick="performAction('heal')">Heal</button>
+            <button onclick="performAction('clean')">Clean</button>
+        </div>
+        <div id="store">
+            <h1>Store</h1>
+            <div id="store-items"></div>
+        </div>
+        <div id="leaderboard">
+            <h1>Leaderboard</h1>
+            <div id="leaderboard-list"></div>
+        </div>
+        <div id="mini-game">
+            <h1>Mini Game</h1>
+            <canvas id="gameCanvas" width="300" height="300"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="mini_game.js"></script>
+    <script>
+        window.Telegram.WebApp.ready();
+
+        // Пример использования Telegram Web App SDK
+        window.Telegram.WebApp.expand();
+
+        // Получение информации о пользователе
+        const userId = window.Telegram.WebApp.initDataUnsafe.user.id;
+        console.log('User ID:', userId);
+
+        // Пример отправки сообщения в Telegram
+        window.Telegram.WebApp.sendData(JSON.stringify({ action: 'start' }));
+    </script>
+</body>
+</html>
